@@ -1,0 +1,429 @@
+{
+  "_meta": {
+    "description": "MedGuard-AI Treatment Guidelines Knowledge Base",
+    "version": "1.0",
+    "source": "Based on WHO guidelines, UpToDate, and standard clinical references. FOR RESEARCH USE ONLY.",
+    "diseases_covered": 42,
+    "icd10_included": true
+  },
+  "fungal infection": {
+    "icd10": "B49",
+    "first_line_drug": "Fluconazole",
+    "dose": "150mg single dose (oral) or 200mg once daily for 7–14 days",
+    "drug_class": "Azole antifungal",
+    "evidence_level": "A",
+    "reasoning": "Fluconazole is the first-line treatment for most superficial fungal infections. It inhibits ergosterol synthesis disrupting fungal cell membrane integrity.",
+    "alternative": "Clotrimazole topical, Itraconazole",
+    "monitoring": "Liver function tests with prolonged use"
+  },
+  "allergy": {
+    "icd10": "T78.4",
+    "first_line_drug": "Cetirizine",
+    "dose": "10mg once daily (oral)",
+    "drug_class": "Second-generation antihistamine",
+    "evidence_level": "A",
+    "reasoning": "Second-generation antihistamines are first-line for allergic symptoms. Cetirizine selectively blocks H1 receptors with minimal sedation.",
+    "alternative": "Loratadine 10mg, Fexofenadine 180mg",
+    "monitoring": "None required for short-term use"
+  },
+  "gerd": {
+    "icd10": "K21.0",
+    "first_line_drug": "Omeprazole",
+    "dose": "20mg once daily before breakfast for 4–8 weeks",
+    "drug_class": "Proton pump inhibitor (PPI)",
+    "evidence_level": "A",
+    "reasoning": "PPIs are the most effective agents for acid suppression in GERD. Omeprazole irreversibly inhibits H+/K+ ATPase in gastric parietal cells.",
+    "alternative": "Esomeprazole 40mg, Pantoprazole 40mg",
+    "monitoring": "Magnesium levels with long-term use; B12 levels"
+  },
+  "chronic cholestasis": {
+    "icd10": "K83.1",
+    "first_line_drug": "Ursodeoxycholic acid (UDCA)",
+    "dose": "13–15 mg/kg/day in 2–3 divided doses",
+    "drug_class": "Bile acid",
+    "evidence_level": "A",
+    "reasoning": "UDCA replaces toxic bile acids, reduces hepatocyte injury, and improves bile flow in cholestatic liver disease.",
+    "alternative": "Cholestyramine for pruritus relief",
+    "monitoring": "LFTs every 6 months"
+  },
+  "drug reaction": {
+    "icd10": "T88.7",
+    "first_line_drug": "Discontinue causative agent + Prednisolone",
+    "dose": "Prednisolone 1 mg/kg/day tapered over 2 weeks",
+    "drug_class": "Corticosteroid (if needed for severe reaction)",
+    "evidence_level": "B",
+    "reasoning": "Immediate withdrawal of the offending drug is mandatory. Systemic corticosteroids are used for severe cutaneous reactions (e.g., DRESS, SJS).",
+    "alternative": "Antihistamines for mild urticaria",
+    "monitoring": "Blood glucose, electrolytes during steroid course"
+  },
+  "peptic ulcer disease": {
+    "icd10": "K27.9",
+    "first_line_drug": "Omeprazole + Amoxicillin + Clarithromycin",
+    "dose": "Omeprazole 20mg BD + Amoxicillin 1g BD + Clarithromycin 500mg BD for 7–14 days (if H. pylori positive)",
+    "drug_class": "PPI + antibiotics (triple therapy)",
+    "evidence_level": "A",
+    "reasoning": "H. pylori eradication is first-line for peptic ulcer disease. Triple therapy with PPI and two antibiotics achieves >85% eradication rates.",
+    "alternative": "Bismuth quadruple therapy if clarithromycin-resistant region",
+    "monitoring": "Repeat H. pylori test 4 weeks post-treatment"
+  },
+  "aids": {
+    "icd10": "B24",
+    "first_line_drug": "Tenofovir + Emtricitabine + Dolutegravir",
+    "dose": "TDF 300mg + FTC 200mg + DTG 50mg once daily",
+    "drug_class": "Antiretroviral therapy (ART) — Integrase inhibitor-based regimen",
+    "evidence_level": "A",
+    "reasoning": "WHO-recommended first-line ART. Dolutegravir has high barrier to resistance, excellent tolerability, and once-daily dosing.",
+    "alternative": "Efavirenz-based regimen if DTG unavailable",
+    "monitoring": "CD4 count, viral load every 6 months; renal function (TDF)"
+  },
+  "diabetes": {
+    "icd10": "E11.9",
+    "first_line_drug": "Metformin",
+    "dose": "500mg twice daily with meals, titrate to 1000mg twice daily",
+    "drug_class": "Biguanide",
+    "evidence_level": "A",
+    "reasoning": "Metformin is first-line for Type 2 Diabetes (ADA guidelines). It reduces hepatic glucose production, improves insulin sensitivity, and is weight-neutral.",
+    "alternative": "SGLT-2 inhibitors (Empagliflozin) if CVD present",
+    "monitoring": "HbA1c every 3–6 months; eGFR annually; B12 levels"
+  },
+  "gastroenteritis": {
+    "icd10": "A09",
+    "first_line_drug": "Oral Rehydration Solution (ORS)",
+    "dose": "200–400ml after each loose stool",
+    "drug_class": "Electrolyte replacement",
+    "evidence_level": "A",
+    "reasoning": "Viral gastroenteritis is self-limiting. ORS prevents dehydration. Antibiotics not indicated unless bacterial cause confirmed (Salmonella, Shigella).",
+    "alternative": "IV fluids if severe dehydration; Ciprofloxacin for bacterial GE",
+    "monitoring": "Hydration status; electrolytes if severe"
+  },
+  "bronchial asthma": {
+    "icd10": "J45.9",
+    "first_line_drug": "Salbutamol (short-acting bronchodilator) + Budesonide (ICS)",
+    "dose": "Salbutamol 100–200mcg inhaled PRN; Budesonide 200–400mcg BD",
+    "drug_class": "SABA + Inhaled corticosteroid",
+    "evidence_level": "A",
+    "reasoning": "GINA guidelines recommend ICS as first-line controller therapy. SABAs provide rapid bronchodilation for acute symptoms.",
+    "alternative": "Montelukast as add-on; LABA + ICS if uncontrolled",
+    "monitoring": "Peak flow monitoring; annual spirometry"
+  },
+  "hypertension": {
+    "icd10": "I10",
+    "first_line_drug": "Amlodipine",
+    "dose": "5mg once daily, titrate to 10mg if BP uncontrolled",
+    "drug_class": "Calcium channel blocker (CCB)",
+    "evidence_level": "A",
+    "reasoning": "CCBs and ACE inhibitors are first-line per JNC 8 / ESC guidelines. Amlodipine has long half-life, good tolerability, and reduces CV events.",
+    "alternative": "Lisinopril 10mg OD; Hydrochlorothiazide 12.5–25mg OD",
+    "monitoring": "BP every 4 weeks until target; electrolytes; renal function"
+  },
+  "migraine": {
+    "icd10": "G43.9",
+    "first_line_drug": "Sumatriptan",
+    "dose": "50–100mg oral at onset; may repeat after 2h (max 200mg/24h)",
+    "drug_class": "5-HT1 agonist (Triptan)",
+    "evidence_level": "A",
+    "reasoning": "Triptans are the most effective abortive therapy for moderate-to-severe migraine. They cause cranial vasoconstriction and inhibit CGRP release.",
+    "alternative": "Naproxen 500mg for mild attacks; Topiramate for prevention",
+    "monitoring": "Cardiovascular status before use (Triptans contraindicated in CVD)"
+  },
+  "cervical spondylosis": {
+    "icd10": "M47.812",
+    "first_line_drug": "Ibuprofen",
+    "dose": "400–600mg three times daily with food for 5–7 days",
+    "drug_class": "NSAID",
+    "evidence_level": "B",
+    "reasoning": "NSAIDs reduce inflammation and pain in cervical spondylosis. Physiotherapy is first-line non-pharmacological treatment.",
+    "alternative": "Paracetamol 1g TDS; Muscle relaxants (Cyclobenzaprine) for spasm",
+    "monitoring": "Renal function; GI symptoms with prolonged use"
+  },
+  "paralysis (brain hemorrhage)": {
+    "icd10": "I61.9",
+    "first_line_drug": "Supportive care + Nimodipine (subarachnoid type) + Antihypertensives",
+    "dose": "Nimodipine 60mg every 4h for 21 days (subarachnoid hemorrhage)",
+    "drug_class": "Calcium channel blocker (neuroprotective)",
+    "evidence_level": "A",
+    "reasoning": "Acute intracerebral hemorrhage requires blood pressure control, reversal of anticoagulation if applicable, and ICP management. Nimodipine prevents vasospasm in SAH.",
+    "alternative": "Labetalol for acute BP control; Neurosurgical referral",
+    "monitoring": "Neurological status; Glasgow Coma Scale; CT imaging"
+  },
+  "jaundice": {
+    "icd10": "R17",
+    "first_line_drug": "Treat underlying cause (e.g., UDCA for cholestasis, antivirals for hepatitis)",
+    "dose": "Varies by etiology",
+    "drug_class": "Varies by cause",
+    "evidence_level": "A",
+    "reasoning": "Jaundice is a symptom, not a diagnosis. Management requires identifying the underlying cause: pre-hepatic (haemolysis), hepatic (hepatitis, cirrhosis), or post-hepatic (biliary obstruction).",
+    "alternative": "Phototherapy for neonatal jaundice",
+    "monitoring": "Bilirubin levels (total/direct/indirect); LFTs; imaging"
+  },
+  "malaria": {
+    "icd10": "B54",
+    "first_line_drug": "Artemether-Lumefantrine (Coartem)",
+    "dose": "80mg/480mg BD for 3 days (weight-based dosing)",
+    "drug_class": "Artemisinin-based combination therapy (ACT)",
+    "evidence_level": "A",
+    "reasoning": "WHO recommends ACTs as first-line for uncomplicated P. falciparum malaria. For severe malaria, IV Artesunate is preferred.",
+    "alternative": "IV Artesunate for severe malaria; Chloroquine for P. vivax (if sensitive)",
+    "monitoring": "Parasitaemia on blood film; CBC; renal function"
+  },
+  "chicken pox": {
+    "icd10": "B01.9",
+    "first_line_drug": "Aciclovir",
+    "dose": "800mg five times daily for 7 days (adult); 20mg/kg QID for 5 days (child)",
+    "drug_class": "Antiviral — nucleoside analogue",
+    "evidence_level": "A",
+    "reasoning": "Aciclovir reduces duration and severity of varicella if started within 24h of rash onset. Most effective in immunocompromised patients.",
+    "alternative": "Supportive care (antihistamines, calamine) for mild cases",
+    "monitoring": "Secondary bacterial infection; renal function (IV dosing)"
+  },
+  "dengue": {
+    "icd10": "A90",
+    "first_line_drug": "Supportive care — Paracetamol + ORS",
+    "dose": "Paracetamol 1g every 6h (max 4g/day); ORS as needed",
+    "drug_class": "Antipyretic + Electrolyte replacement",
+    "evidence_level": "A",
+    "reasoning": "No specific antiviral exists for dengue. NSAIDs and Aspirin are CONTRAINDICATED due to bleeding risk. Paracetamol controls fever safely.",
+    "alternative": "IV fluid resuscitation for dengue haemorrhagic fever",
+    "monitoring": "Platelet count daily; haematocrit; warning signs"
+  },
+  "typhoid": {
+    "icd10": "A01.0",
+    "first_line_drug": "Ceftriaxone",
+    "dose": "2g IV/IM once daily for 10–14 days",
+    "drug_class": "Third-generation cephalosporin",
+    "evidence_level": "A",
+    "reasoning": "Parenteral third-generation cephalosporins are preferred for severe typhoid. Oral alternatives: Azithromycin 1g loading then 500mg OD × 7 days.",
+    "alternative": "Azithromycin for uncomplicated typhoid; Ciprofloxacin where susceptibility confirmed",
+    "monitoring": "Blood cultures; fever curve; liver function"
+  },
+  "hepatitis a": {
+    "icd10": "B15.9",
+    "first_line_drug": "Supportive care (rest, nutrition, hydration)",
+    "dose": "No specific antiviral treatment",
+    "drug_class": "Supportive",
+    "evidence_level": "A",
+    "reasoning": "Hepatitis A is self-limiting in most cases. Avoid hepatotoxic drugs (alcohol, paracetamol excess). Vaccination prevents infection.",
+    "alternative": "Hospital admission for fulminant hepatitis",
+    "monitoring": "LFTs weekly; INR; bilirubin"
+  },
+  "hepatitis b": {
+    "icd10": "B18.1",
+    "first_line_drug": "Tenofovir disoproxil fumarate (TDF)",
+    "dose": "300mg once daily",
+    "drug_class": "Nucleotide reverse transcriptase inhibitor",
+    "evidence_level": "A",
+    "reasoning": "TDF is first-line for chronic Hepatitis B per EASL/AASLD guidelines. High barrier to resistance; can be used in pregnancy.",
+    "alternative": "Entecavir 0.5mg OD; Pegylated interferon for HBeAg+ with high ALT",
+    "monitoring": "HBV DNA every 3 months; LFTs; HBsAg/HBeAg status"
+  },
+  "hepatitis c": {
+    "icd10": "B18.2",
+    "first_line_drug": "Sofosbuvir + Velpatasvir (Epclusa)",
+    "dose": "400mg/100mg once daily for 12 weeks",
+    "drug_class": "Direct-acting antiviral (DAA) — pan-genotypic",
+    "evidence_level": "A",
+    "reasoning": "DAAs achieve sustained virologic response (SVR) >95% in all genotypes. Pan-genotypic regimens eliminate need for genotyping.",
+    "alternative": "Glecaprevir/Pibrentasvir 8 weeks (non-cirrhotic)",
+    "monitoring": "HCV RNA at week 4 and 12 weeks post-treatment"
+  },
+  "hepatitis d": {
+    "icd10": "B17.0",
+    "first_line_drug": "Pegylated Interferon alfa-2a",
+    "dose": "180mcg subcutaneous injection weekly for 48 weeks",
+    "drug_class": "Immunomodulator / Antiviral",
+    "evidence_level": "B",
+    "reasoning": "Pegylated IFN-alfa is the only proven treatment for HDV. Bulevirtide (entry inhibitor) is newly approved in Europe.",
+    "alternative": "Bulevirtide 2mg SC daily (EMA-approved)",
+    "monitoring": "HDV RNA; ALT; neuropsychiatric side effects"
+  },
+  "hepatitis e": {
+    "icd10": "B17.2",
+    "first_line_drug": "Supportive care (rest, hydration)",
+    "dose": "No specific antiviral for immunocompetent patients",
+    "drug_class": "Supportive",
+    "evidence_level": "A",
+    "reasoning": "Hepatitis E is self-limiting in immunocompetent patients. Ribavirin is used in immunocompromised/transplant patients.",
+    "alternative": "Ribavirin 600–800mg/day for 12 weeks in immunocompromised",
+    "monitoring": "LFTs; INR; extra care in pregnancy (high mortality)"
+  },
+  "alcoholic hepatitis": {
+    "icd10": "K70.1",
+    "first_line_drug": "Prednisolone",
+    "dose": "40mg once daily for 28 days (Maddrey Discriminant Function >32)",
+    "drug_class": "Corticosteroid",
+    "evidence_level": "A",
+    "reasoning": "Prednisolone reduces short-term mortality in severe alcoholic hepatitis. Calculate Maddrey DF first; contraindicated if active infection or GI bleed.",
+    "alternative": "Pentoxifylline 400mg TDS if steroids contraindicated",
+    "monitoring": "Lille score at day 7; blood glucose; infection surveillance"
+  },
+  "tuberculosis": {
+    "icd10": "A15.9",
+    "first_line_drug": "HRZE regimen — Isoniazid + Rifampicin + Pyrazinamide + Ethambutol",
+    "dose": "Intensive phase: 2 months HRZE; Continuation phase: 4 months HR",
+    "drug_class": "Combination antibiotic regimen",
+    "evidence_level": "A",
+    "reasoning": "Standard 6-month DOTS regimen per WHO guidelines. Never use monotherapy — combination prevents resistance. Vitamin B6 (Pyridoxine) co-administered to prevent INH neuropathy.",
+    "alternative": "Bedaquiline + Linezolid for MDR-TB",
+    "monitoring": "LFTs monthly; visual acuity (Ethambutol); sputum AFB monthly"
+  },
+  "common cold": {
+    "icd10": "J00",
+    "first_line_drug": "Supportive care — Paracetamol + Nasal saline + Fluids",
+    "dose": "Paracetamol 500mg–1g every 4–6h PRN",
+    "drug_class": "Antipyretic / Symptomatic relief",
+    "evidence_level": "A",
+    "reasoning": "Common cold is self-limiting (rhinovirus). Antibiotics are not indicated. Zinc lozenges may reduce duration if started within 24h.",
+    "alternative": "Pseudoephedrine for congestion; Dextromethorphan for cough",
+    "monitoring": "Secondary bacterial infection (sinusitis, otitis media)"
+  },
+  "pneumonia": {
+    "icd10": "J18.9",
+    "first_line_drug": "Amoxicillin",
+    "dose": "1g three times daily for 5–7 days (community-acquired, outpatient)",
+    "drug_class": "Beta-lactam antibiotic",
+    "evidence_level": "A",
+    "reasoning": "Streptococcus pneumoniae is the most common CAP pathogen. Amoxicillin covers typical organisms. Azithromycin added for atypical cover if needed.",
+    "alternative": "Azithromycin + Ceftriaxone for hospitalised patients; Levofloxacin as monotherapy",
+    "monitoring": "Oxygen saturation; CXR at 6 weeks; blood cultures before antibiotics"
+  },
+  "dimorphic hemorrhoids (piles)": {
+    "icd10": "K64.9",
+    "first_line_drug": "Hydrocortisone + Lidocaine topical cream",
+    "dose": "Apply to affected area 2–4 times daily for 5–7 days",
+    "drug_class": "Topical corticosteroid + local anaesthetic",
+    "evidence_level": "B",
+    "reasoning": "First-line for symptomatic relief. High-fibre diet and adequate hydration are essential non-pharmacological interventions.",
+    "alternative": "Rubber band ligation for grade II–III; Haemorrhoidectomy for severe cases",
+    "monitoring": "Duration of topical steroid use; surgical referral criteria"
+  },
+  "heart attack": {
+    "icd10": "I21.9",
+    "first_line_drug": "Aspirin + Clopidogrel + Atorvastatin + Early PCI/thrombolysis",
+    "dose": "Aspirin 300mg loading + Clopidogrel 300mg loading; Atorvastatin 80mg OD",
+    "drug_class": "Antiplatelets + Statin — acute STEMI protocol",
+    "evidence_level": "A",
+    "reasoning": "STEMI management: immediate aspirin, dual antiplatelet therapy, statin, and reperfusion strategy within 90 minutes (primary PCI preferred).",
+    "alternative": "Thrombolysis (Alteplase) if PCI unavailable within 120 min",
+    "monitoring": "Cardiac biomarkers (Troponin); ECG monitoring; LVEF echocardiography"
+  },
+  "varicose veins": {
+    "icd10": "I83.90",
+    "first_line_drug": "Compression stockings + Diosmin",
+    "dose": "Diosmin 1000mg once daily; Compression class II (23–32 mmHg)",
+    "drug_class": "Venotonic + External compression",
+    "evidence_level": "B",
+    "reasoning": "Compression reduces venous hypertension. Diosmin improves venous tone and reduces inflammation. Endovenous laser ablation for significant disease.",
+    "alternative": "Sclerotherapy; Endovenous laser ablation (EVLA)",
+    "monitoring": "Duplex ultrasound; skin changes"
+  },
+  "hypothyroidism": {
+    "icd10": "E03.9",
+    "first_line_drug": "Levothyroxine (L-T4)",
+    "dose": "1.6 mcg/kg/day, starting at 25–50mcg OD and titrating every 4–6 weeks",
+    "drug_class": "Thyroid hormone replacement",
+    "evidence_level": "A",
+    "reasoning": "Levothyroxine is the gold standard. Dose titrated to achieve TSH in normal range (0.4–4.0 mIU/L). Take 30–60 min before food.",
+    "alternative": "Add T3 (Liothyronine) for persistent symptoms despite normal TSH",
+    "monitoring": "TSH every 4–6 weeks until stable; then annually; lipid profile"
+  },
+  "hyperthyroidism": {
+    "icd10": "E05.90",
+    "first_line_drug": "Carbimazole",
+    "dose": "20–40mg once daily initially; reduce to 5–15mg maintenance",
+    "drug_class": "Thionamide antithyroid drug",
+    "evidence_level": "A",
+    "reasoning": "Carbimazole blocks thyroid peroxidase, reducing T3/T4 synthesis. Used for Graves' disease. Propranolol added for symptomatic control (tachycardia, tremor).",
+    "alternative": "Radioactive iodine (I-131); Thyroidectomy",
+    "monitoring": "TFTs every 4–6 weeks; CBC (agranulocytosis risk)"
+  },
+  "hypoglycemia": {
+    "icd10": "E16.0",
+    "first_line_drug": "Oral glucose (if conscious) or Glucagon / IV Dextrose (if unconscious)",
+    "dose": "15–20g fast-acting glucose (glucose tablets or juice); IV 50ml of 50% dextrose",
+    "drug_class": "Glucose replacement",
+    "evidence_level": "A",
+    "reasoning": "Immediate glucose correction is essential. Follow 15-15 rule: 15g glucose, recheck BG after 15 minutes, repeat if still low.",
+    "alternative": "IM Glucagon 1mg if IV access not available",
+    "monitoring": "Blood glucose every 15 minutes until normalised"
+  },
+  "osteoarthritis": {
+    "icd10": "M19.90",
+    "first_line_drug": "Paracetamol",
+    "dose": "1g up to four times daily (max 4g/day)",
+    "drug_class": "Analgesic",
+    "evidence_level": "A",
+    "reasoning": "Paracetamol is preferred first-line as NSAIDs carry GI/cardiovascular risks. Topical diclofenac is effective for knee OA with reduced systemic risk.",
+    "alternative": "Topical Diclofenac gel; Oral NSAIDs if insufficient; Intra-articular corticosteroid",
+    "monitoring": "Pain VAS score; NSAID use — GI protection with PPI"
+  },
+  "arthritis": {
+    "icd10": "M13.9",
+    "first_line_drug": "Methotrexate (Rheumatoid Arthritis)",
+    "dose": "7.5–25mg once weekly (oral or SC) + Folic acid 5mg/week",
+    "drug_class": "DMARD (Disease-Modifying Antirheumatic Drug)",
+    "evidence_level": "A",
+    "reasoning": "Methotrexate is the anchor DMARD for RA per ACR/EULAR guidelines. Folic acid supplementation reduces toxicity. Folic acid must always be co-prescribed.",
+    "alternative": "Hydroxychloroquine for mild RA; Biologic DMARDs (anti-TNF) for refractory disease",
+    "monitoring": "CBC, LFTs every 4–8 weeks; annual chest X-ray"
+  },
+  "paroxysmal positional vertigo": {
+    "icd10": "H81.10",
+    "first_line_drug": "Epley Manoeuvre (non-pharmacological) + Betahistine",
+    "dose": "Betahistine 16mg three times daily",
+    "drug_class": "Histamine analogue / Vestibular suppressant",
+    "evidence_level": "A",
+    "reasoning": "The Epley manoeuvre is curative in >80% of BPPV cases. Betahistine improves inner ear blood flow and reduces vestibular neurotransmission.",
+    "alternative": "Prochlorperazine for acute nausea/vomiting",
+    "monitoring": "Dix-Hallpike test after treatment"
+  },
+  "acne": {
+    "icd10": "L70.0",
+    "first_line_drug": "Topical Benzoyl Peroxide + Clindamycin",
+    "dose": "Benzoyl peroxide 5% gel OD; Clindamycin 1% gel BD",
+    "drug_class": "Keratolytic + Topical antibiotic",
+    "evidence_level": "A",
+    "reasoning": "Combination therapy with benzoyl peroxide and antibiotic is more effective than monotherapy and reduces antibiotic resistance.",
+    "alternative": "Oral Doxycycline 100mg OD for moderate-severe; Isotretinoin for severe/nodular acne",
+    "monitoring": "Skin response at 8–10 weeks; Isotretinoin liver and lipid monitoring"
+  },
+  "urinary tract infection": {
+    "icd10": "N39.0",
+    "first_line_drug": "Nitrofurantoin",
+    "dose": "100mg modified-release twice daily for 5 days (uncomplicated UTI)",
+    "drug_class": "Urinary antibiotic",
+    "evidence_level": "A",
+    "reasoning": "Nitrofurantoin is first-line for uncomplicated lower UTI (NICE guidelines). Concentrates in urine. Avoid if eGFR <45 or in late pregnancy.",
+    "alternative": "Trimethoprim 200mg BD × 7 days; Fosfomycin 3g single dose",
+    "monitoring": "Urine culture and sensitivity; symptoms at day 3"
+  },
+  "psoriasis": {
+    "icd10": "L40.0",
+    "first_line_drug": "Topical Calcipotriol + Betamethasone dipropionate (Xamiol/Dovobet)",
+    "dose": "Apply once daily for up to 4 weeks; max 100g/week",
+    "drug_class": "Vitamin D analogue + Topical corticosteroid",
+    "evidence_level": "A",
+    "reasoning": "Combination calcipotriol + corticosteroid is superior to either agent alone. Calcipotriol slows keratinocyte proliferation; corticosteroid reduces inflammation.",
+    "alternative": "Methotrexate for moderate–severe psoriasis; Biologics (Adalimumab, Secukinumab) for severe disease",
+    "monitoring": "PASI score; skin atrophy with prolonged topical steroid use"
+  },
+  "impetigo": {
+    "icd10": "L01.00",
+    "first_line_drug": "Topical Fusidic acid",
+    "dose": "Apply to affected area 3 times daily for 5–7 days",
+    "drug_class": "Topical antibiotic",
+    "evidence_level": "A",
+    "reasoning": "Non-bullous impetigo (S. aureus, S. pyogenes) responds well to topical fusidic acid. Oral antibiotics for extensive/bullous disease.",
+    "alternative": "Topical Mupirocin; Oral Flucloxacillin 500mg QDS for extensive impetigo",
+    "monitoring": "Lesion resolution at 5–7 days; glomerulonephritis risk (post-streptococcal)"
+  },
+  "gastroenteritis (acute)": {
+    "icd10": "A09",
+    "first_line_drug": "Oral Rehydration Salts + Zinc (children)",
+    "dose": "ORS 10ml/kg after each stool; Zinc 20mg OD for 10–14 days (children)",
+    "drug_class": "Electrolyte replacement + Micronutrient",
+    "evidence_level": "A",
+    "reasoning": "WHO recommends ORS and zinc for childhood gastroenteritis. Zinc reduces duration and severity. Probiotics (Lactobacillus) may reduce duration.",
+    "alternative": "Azithromycin for confirmed bacterial GE; Metronidazole for Giardia",
+    "monitoring": "Hydration status; weight; signs of sepsis"
+  }
+}

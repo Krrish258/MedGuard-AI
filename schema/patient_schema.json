@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MedGuard-AI Patient Input Schema",
+  "description": "Schema defining the structure of patient data submitted to the MedGuard-AI agentic clinical decision-support pipeline.",
+  "type": "object",
+  "required": ["patient_id", "age", "symptoms", "medical_history", "current_medications", "allergies"],
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Unique identifier for the patient record."
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 130,
+      "description": "Age of the patient in years."
+    },
+    "symptoms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Free-text list of symptoms currently reported by the patient. The reasoning agent performs fuzzy matching against the canonical 132-symptom vocabulary."
+    },
+    "medical_history": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of past or chronic conditions the patient has been diagnosed with. Used by the causal verification engine for contraindication analysis."
+    },
+    "current_medications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "dose", "frequency"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Generic or brand name of the medication."
+          },
+          "dose": {
+            "type": "string",
+            "description": "Dosage amount, e.g. '500mg', '10mcg'."
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Administration frequency, e.g. 'twice daily', 'as needed'."
+          }
+        }
+      },
+      "description": "List of medications the patient is currently taking. Used for drug-drug interaction analysis."
+    },
+    "allergies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of known drug or substance allergies. Checked against the proposed treatment by the contraindication module."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "description": "MedGuard-AI Medical History Contraindications. FOR RESEARCH USE ONLY.",
+    "version": "1.0"
+  },
+  "asthma": {
+    "contraindicated_drugs": [
+      "Propranolol", "Atenolol", "Metoprolol", "Bisoprolol", "Carvedilol",
+      "Nadolol", "Timolol", "Sotalol"
+    ],
+    "drug_classes": ["Non-selective beta-blockers"],
+    "reason": "Non-selective beta-blockers block beta-2 receptors in bronchial smooth muscle, causing bronchoconstriction and potentially fatal bronchospasm.",
+    "severity": "CRITICAL",
+    "safe_alternatives": ["Amlodipine (CCB)", "Ramipril (ACE inhibitor)", "Selective beta-1 blockers (Bisoprolol) with EXTREME caution only if no alternative"]
+  },
+  "renal failure": {
+    "contraindicated_drugs": [
+      "Metformin", "NSAIDs", "Ibuprofen", "Naproxen", "Diclofenac",
+      "Nitrofurantoin", "Lithium", "Aminoglycosides", "Tetracyclines"
+    ],
+    "drug_classes": ["NSAIDs", "Biguanides", "Nephrotoxic antibiotics"],
+    "reason": "NSAIDs reduce renal perfusion. Metformin accumulates causing lactic acidosis. Nitrofurantoin ineffective and toxic in severe renal impairment.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Paracetamol for analgesia", "Insulin for diabetes in severe CKD", "Fosfomycin/Pivmecillinam for UTI"]
+  },
+  "liver failure": {
+    "contraindicated_drugs": [
+      "Paracetamol (full dose)", "Methotrexate", "Isoniazid", "Rifampicin",
+      "Statins", "NSAIDs", "Azathioprine", "Tetracyclines"
+    ],
+    "drug_classes": ["Hepatotoxic drugs", "High first-pass metabolism drugs"],
+    "reason": "Impaired hepatic metabolism leads to drug accumulation and worsening hepatic injury.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Paracetamol in reduced dose (2g/day max)", "Prednisolone (renal metabolism preferred)"]
+  },
+  "hypertension": {
+    "contraindicated_drugs": [
+      "Pseudoephedrine", "Phenylephrine", "Amphetamines",
+      "High-dose NSAIDs (chronic)", "Cocaine"
+    ],
+    "drug_classes": ["Sympathomimetics", "Decongestants"],
+    "reason": "Sympathomimetics raise blood pressure through alpha-adrenergic vasoconstriction. NSAIDs blunt antihypertensive effect.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Intranasal saline for congestion", "Antihistamines (loratadine) for allergy symptoms"]
+  },
+  "type 2 diabetes": {
+    "contraindicated_drugs": [
+      "High-dose corticosteroids (systemic)", "Thiazide diuretics (high dose)",
+      "Atypical antipsychotics (Olanzapine, Clozapine)"
+    ],
+    "drug_classes": ["Hyperglycaemia-inducing agents"],
+    "reason": "Corticosteroids cause steroid-induced hyperglycaemia. Thiazides impair insulin secretion. Atypical antipsychotics cause insulin resistance.",
+    "severity": "MODERATE",
+    "safe_alternatives": ["Use lowest effective corticosteroid dose. Monitor blood glucose during steroid courses."]
+  },
+  "pregnancy": {
+    "contraindicated_drugs": [
+      "Tetracyclines", "Doxycycline", "Methotrexate", "Warfarin",
+      "ACE inhibitors (2nd/3rd trimester)", "NSAIDs (3rd trimester)",
+      "Isotretinoin", "Thalidomide", "Valproate", "Carbimazole (1st trimester)"
+    ],
+    "drug_classes": ["Teratogenic drugs"],
+    "reason": "These agents are confirmed teratogens or cause significant fetal harm. Tetracyclines stain teeth, NSAIDs cause premature ductus closure, ACE inhibitors cause renal defects.",
+    "severity": "CRITICAL",
+    "safe_alternatives": ["Amoxicillin (infections)", "Paracetamol (analgesia)", "Labetalol/Methyldopa (hypertension)", "Insulin (diabetes)"]
+  },
+  "heart failure": {
+    "contraindicated_drugs": [
+      "NSAIDs", "Thiazolidinediones (Pioglitazone)", "Verapamil",
+      "Diltiazem", "Dronedarone", "Class IC antiarrhythmics"
+    ],
+    "drug_classes": ["Negative inotropes", "Fluid-retaining agents"],
+    "reason": "NSAIDs cause fluid retention. CCBs (non-dihydropyridine) depress myocardial contractility. Thiazolidinediones cause fluid retention via renal mechanism.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Paracetamol for analgesia", "Amlodipine (safe CCB in HF)", "ACE inhibitor + beta-blocker as standard HF therapy"]
+  },
+  "peptic ulcer disease": {
+    "contraindicated_drugs": [
+      "NSAIDs", "Ibuprofen", "Aspirin", "Naproxen", "Diclofenac",
+      "Corticosteroids", "Potassium chloride tablets"
+    ],
+    "drug_classes": ["Gastric mucosa irritants"],
+    "reason": "NSAIDs inhibit COX-1 prostaglandin synthesis, disrupting gastroprotective mucus. Steroids impair mucosal healing.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Paracetamol", "COX-2 inhibitors (Celecoxib) + PPI", "Topical analgesics"]
+  },
+  "hyperlipidemia": {
+    "contraindicated_drugs": [
+      "High-dose thiazides", "Beta-blockers (non-selective)", "Isotretinoin",
+      "Protease inhibitors (HIV)"
+    ],
+    "drug_classes": ["Lipid-raising agents"],
+    "reason": "These agents worsen the lipid profile, counteracting treatment goals.",
+    "severity": "MODERATE",
+    "safe_alternatives": ["Amlodipine for BP", "Selective beta-1 blockers if required"]
+  },
+  "epilepsy": {
+    "contraindicated_drugs": [
+      "Tramadol", "Chlorpromazine", "Clozapine", "Fluoroquinolones (high dose)",
+      "Theophylline", "Bupropion"
+    ],
+    "drug_classes": ["Seizure threshold-lowering drugs"],
+    "reason": "These agents lower the seizure threshold, risking breakthrough seizures in controlled epilepsy.",
+    "severity": "MAJOR",
+    "safe_alternatives": ["Paracetamol or opioids for pain", "Alternative antipsychotics with lower seizure risk"]
+  }
+}

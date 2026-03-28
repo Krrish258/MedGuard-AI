@@ -1,0 +1,71 @@
+[
+  {
+    "patient_id": "PT-001",
+    "age": 62,
+    "gender": "male",
+    "symptoms": [
+      "chills",
+      "vomiting",
+      "fatigue",
+      "weight_loss",
+      "cough",
+      "high_fever",
+      "breathlessness",
+      "sweating",
+      "loss_of_appetite",
+      "mild_fever",
+      "yellowing_of_eyes",
+      "swelled_lymph_nodes",
+      "malaise",
+      "phlegm",
+      "chest_pain",
+      "blood_in_sputum"
+    ],
+    "medical_history": [
+      "hypertension",
+      "type 2 diabetes"
+    ],
+    "current_medications": [
+      {
+        "name": "Metformin",
+        "dose": "500mg",
+        "frequency": "twice daily"
+      },
+      {
+        "name": "Lisinopril",
+        "dose": "10mg",
+        "frequency": "once daily"
+      }
+    ],
+    "allergies": [
+      "Penicillin"
+    ]
+  },
+  {
+    "patient_id": "PT-002",
+    "age": 28,
+    "gender": "female",
+    "symptoms": [
+      "chills",
+      "vomiting",
+      "high fever",
+      "sweating",
+      "headache",
+      "nausea",
+      "muscle pain"
+    ],
+    "medical_history": [
+      "asthma"
+    ],
+    "current_medications": [
+      {
+        "name": "Albuterol",
+        "dose": "90mcg",
+        "frequency": "as needed"
+      }
+    ],
+    "allergies": [
+      "Sulfa drugs"
+    ]
+  }
+]

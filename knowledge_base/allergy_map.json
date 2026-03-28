@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "description": "MedGuard-AI Allergy Cross-Reactivity Map. FOR RESEARCH USE ONLY.",
+    "version": "1.0"
+  },
+  "Penicillin": {
+    "severity": "CRITICAL",
+    "avoid_classes": ["Beta-lactams", "Penicillins", "Aminopenicillins"],
+    "avoid_drugs": ["Amoxicillin", "Ampicillin", "Flucloxacillin", "Co-amoxiclav", "Piperacillin"],
+    "cross_reactive": {
+      "Cephalosporins": "~1-2% cross-reactivity. Avoid if anaphylaxis history.",
+      "Carbapenems": "<<1% cross-reactivity. Generally safe but monitor."
+    },
+    "safe_alternatives": ["Azithromycin", "Clarithromycin", "Doxycycline", "Clindamycin", "Vancomycin"]
+  },
+  "Sulfa drugs": {
+    "severity": "MAJOR",
+    "avoid_classes": ["Sulfonamides", "Sulfa antibiotics"],
+    "avoid_drugs": ["Trimethoprim-Sulfamethoxazole", "Co-trimoxazole", "Sulfadiazine", "Sulfasalazine"],
+    "cross_reactive": {
+      "Thiazide diuretics": "Possible cross-reactivity. Use with caution.",
+      "Furosemide": "Theoretical. Generally tolerated.",
+      "Celecoxib": "Contains sulfonamide group. Avoid."
+    },
+    "safe_alternatives": ["Nitrofurantoin", "Fosfomycin", "Ciprofloxacin"]
+  },
+  "Aspirin": {
+    "severity": "MAJOR",
+    "avoid_classes": ["NSAIDs", "Salicylates", "COX-1 inhibitors"],
+    "avoid_drugs": ["Ibuprofen", "Naproxen", "Diclofenac", "Indomethacin", "Ketorolac", "Piroxicam"],
+    "cross_reactive": {
+      "COX-2 inhibitors (Celecoxib)": "Generally safe. Does not trigger same reaction.",
+      "Paracetamol": "Generally safe. Not an NSAID."
+    },
+    "safe_alternatives": ["Paracetamol", "Celecoxib", "Tramadol"]
+  },
+  "Cephalosporins": {
+    "severity": "MAJOR",
+    "avoid_classes": ["Cephalosporins"],
+    "avoid_drugs": ["Cephalexin", "Cefalexin", "Cefuroxime", "Ceftriaxone", "Cefotaxime", "Cefixime"],
+    "cross_reactive": {
+      "Penicillins": "~1-2% cross-reactivity.",
+      "Carbapenems": "Very low. Generally safe."
+    },
+    "safe_alternatives": ["Azithromycin", "Doxycycline", "Vancomycin", "Clindamycin"]
+  },
+  "Macrolides": {
+    "severity": "MODERATE",
+    "avoid_classes": ["Macrolides"],
+    "avoid_drugs": ["Azithromycin", "Clarithromycin", "Erythromycin"],
+    "cross_reactive": {
+      "Within-class": "High. Avoid all macrolides if allergic to one."
+    },
+    "safe_alternatives": ["Doxycycline", "Levofloxacin", "Co-amoxiclav"]
+  },
+  "Fluoroquinolones": {
+    "severity": "MAJOR",
+    "avoid_classes": ["Fluoroquinolones", "Quinolones"],
+    "avoid_drugs": ["Ciprofloxacin", "Levofloxacin", "Moxifloxacin", "Ofloxacin"],
+    "cross_reactive": {
+      "Within-class": "Moderate. One quinolone allergy may predict others."
+    },
+    "safe_alternatives": ["Doxycycline", "Co-amoxiclav", "Nitrofurantoin"]
+  },
+  "Tetracyclines": {
+    "severity": "MODERATE",
+    "avoid_classes": ["Tetracyclines"],
+    "avoid_drugs": ["Doxycycline", "Tetracycline", "Minocycline"],
+    "cross_reactive": {
+      "Within-class": "Avoid all tetracyclines."
+    },
+    "safe_alternatives": ["Azithromycin", "Levofloxacin", "Amoxicillin"]
+  },
+  "Codeine": {
+    "severity": "MAJOR",
+    "avoid_classes": ["Codeine-containing analgesics"],
+    "avoid_drugs": ["Codeine", "Dihydrocodeine", "Co-codamol", "Pholcodine"],
+    "cross_reactive": {
+      "Morphine": "May cross-react.",
+      "Fentanyl": "Generally safe.",
+      "Buprenorphine": "Generally safe."
+    },
+    "safe_alternatives": ["Paracetamol", "Tramadol", "Fentanyl"]
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "_meta": {
+    "description": "MedGuard-AI Drug-Drug Interaction Database",
+    "version": "1.0",
+    "severity_levels": {
+      "CRITICAL": "Life-threatening. Treatment must be altered or abandoned.",
+      "MAJOR": "Serious clinical consequences possible. Close monitoring or alternative required.",
+      "MODERATE": "May cause significant effects. Consider monitoring or dose adjustment.",
+      "MINOR": "Minimal clinical significance. Awareness sufficient."
+    },
+    "source": "Based on DDInter, FDA drug labels, and standard clinical pharmacology references. FOR RESEARCH USE ONLY."
+  },
+  "interactions": [
+    {
+      "drug_a": "Warfarin",
+      "drug_b": "Aspirin",
+      "severity": "CRITICAL",
+      "effect": "Greatly increased risk of major bleeding due to combined anticoagulation and platelet inhibition.",
+      "mechanism": "Aspirin inhibits platelet aggregation and potentiates warfarin's anticoagulant effect.",
+      "management": "Avoid combination unless clearly indicated (e.g., mechanical heart valve). If co-prescribed, monitor INR closely and check for GI bleeding."
+    },
+    {
+      "drug_a": "Metformin",
+      "drug_b": "Iodinated contrast media",
+      "severity": "MAJOR",
+      "effect": "Risk of contrast-induced nephropathy and subsequent lactic acidosis.",
+      "mechanism": "Contrast causes renal impairment, reducing Metformin clearance → accumulation → lactic acidosis.",
+      "management": "Hold Metformin 48h before and after IV contrast if eGFR < 60 ml/min/1.73m²."
+    },
+    {
+      "drug_a": "Lisinopril",
+      "drug_b": "Potassium",
+      "severity": "MAJOR",
+      "effect": "Hyperkalemia — potentially fatal cardiac arrhythmias.",
+      "mechanism": "ACE inhibitors reduce aldosterone, decreasing potassium excretion. Potassium supplements exacerbate this.",
+      "management": "Monitor serum potassium levels. Avoid concurrent potassium supplementation unless clearly indicated."
+    },
+    {
+      "drug_a": "Lisinopril",
+      "drug_b": "NSAIDs",
+      "severity": "MAJOR",
+      "effect": "Reduced antihypertensive efficacy and risk of acute kidney injury.",
+      "mechanism": "NSAIDs inhibit prostaglandin synthesis, which ACE inhibitors rely upon for renal vasodilation.",
+      "management": "Avoid combination in patients with CKD or heart failure. Monitor BP and renal function."
+    },
+    {
+      "drug_a": "Methotrexate",
+      "drug_b": "NSAIDs",
+      "severity": "MAJOR",
+      "effect": "Methotrexate toxicity — bone marrow suppression, hepatotoxicity, mucositis.",
+      "mechanism": "NSAIDs reduce renal clearance of methotrexate, raising plasma levels.",
+      "management": "Avoid chronic NSAIDs with methotrexate. If needed, use lowest dose for shortest duration with close monitoring."
+    },
+    {
+      "drug_a": "Methotrexate",
+      "drug_b": "Trimethoprim",
+      "severity": "CRITICAL",
+      "effect": "Severe bone marrow suppression and megaloblastic anaemia.",
+      "mechanism": "Both inhibit dihydrofolate reductase, causing folate deficiency synergistically.",
+      "management": "Combination contraindicated. Use alternative antibiotics."
+    },
+    {
+      "drug_a": "Carbimazole",
+      "drug_b": "Warfarin",
+      "severity": "MAJOR",
+      "effect": "Potentiates anticoagulant effect of warfarin as thyroid hormone levels normalise.",
+      "mechanism": "Hypothyroid state increases half-life of clotting factors; as treatment proceeds, warfarin dose may need reduction.",
+      "management": "Monitor INR frequently during initiation/dose adjustment of carbimazole."
+    },
+    {
+      "drug_a": "Sumatriptan",
+      "drug_b": "SSRIs",
+      "severity": "MAJOR",
+      "effect": "Serotonin syndrome — fever, agitation, tremor, hyperreflexia, potentially fatal.",
+      "mechanism": "Combined serotonergic stimulation via 5-HT1 agonism (triptan) and SSRI-mediated reuptake inhibition.",
+      "management": "Use with caution. Limit frequency of triptan use. Discontinue if serotonin syndrome signs."
+    },
+    {
+      "drug_a": "Sumatriptan",
+      "drug_b": "MAOIs",
+      "severity": "CRITICAL",
+      "effect": "Severe serotonin syndrome and hypertensive crisis.",
+      "mechanism": "MAOIs prevent breakdown of serotonin and catecholamines; triptans provide additional serotonergic stimulus.",
+      "management": "Contraindicated. Avoid triptans within 2 weeks of MAOI use."
+    },
+    {
+      "drug_a": "Atorvastatin",
+      "drug_b": "Clarithromycin",
+      "severity": "MAJOR",
+      "effect": "Increased risk of myopathy and rhabdomyolysis.",
+      "mechanism": "Clarithromycin inhibits CYP3A4, preventing statin metabolism → elevated statin plasma levels.",
+      "management": "Temporarily hold statin during clarithromycin course, or switch to Pravastatin (not CYP3A4 dependent)."
+    },
+    {
+      "drug_a": "Atorvastatin",
+      "drug_b": "Amiodarone",
+      "severity": "MAJOR",
+      "effect": "Increased myopathy/rhabdomyolysis risk.",
+      "mechanism": "Amiodarone inhibits CYP3A4 and P-glycoprotein, elevating statin levels.",
+      "management": "Limit Atorvastatin dose to 20mg/day if used with Amiodarone. Consider Rosuvastatin."
+    },
+    {
+      "drug_a": "Ceftriaxone",
+      "drug_b": "Calcium (IV)",
+      "severity": "CRITICAL",
+      "effect": "Precipitation of ceftriaxone-calcium salt in lungs and kidneys — potentially fatal in neonates.",
+      "mechanism": "Chemical precipitation of insoluble ceftriaxone-calcium complex in tissues.",
+      "management": "Never co-administer IV ceftriaxone with calcium-containing IV solutions. Contraindicated in neonates."
+    },
+    {
+      "drug_a": "Nitrofurantoin",
+      "drug_b": "Antacids (Magnesium trisilicate)",
+      "severity": "MODERATE",
+      "effect": "Reduced absorption and efficacy of Nitrofurantoin.",
+      "mechanism": "Magnesium trisilicate adsorbs nitrofurantoin in the GI tract, reducing bioavailability.",
+      "management": "Separate administration by at least 2 hours."
+    },
+    {
+      "drug_a": "Fluconazole",
+      "drug_b": "Warfarin",
+      "severity": "MAJOR",
+      "effect": "Markedly elevated INR and bleeding risk.",
+      "mechanism": "Fluconazole inhibits CYP2C9, the primary enzyme for warfarin (S-enantiomer) metabolism.",
+      "management": "Monitor INR closely. Expect dose reduction of warfarin by 25–50%."
+    },
+    {
+      "drug_a": "Fluconazole",
+      "drug_b": "Terfenadine",
+      "severity": "CRITICAL",
+      "effect": "Potentially fatal QT prolongation and torsades de pointes.",
+      "mechanism": "CYP3A4 inhibition by fluconazole elevates terfenadine levels → cardiac arrhythmia.",
+      "management": "Contraindicated. Use non-sedating antihistamines (cetirizine, loratadine) instead."
+    },
+    {
+      "drug_a": "Isoniazid",
+      "drug_b": "Phenytoin",
+      "severity": "MAJOR",
+      "effect": "Phenytoin toxicity — nystagmus, ataxia, confusion.",
+      "mechanism": "Isoniazid inhibits CYP2C9/2C19 responsible for phenytoin metabolism.",
+      "management": "Monitor phenytoin levels; consider dose reduction. Use alternative antifungal."
+    },
+    {
+      "drug_a": "Rifampicin",
+      "drug_b": "Oral contraceptive pill",
+      "severity": "MAJOR",
+      "effect": "Contraceptive failure — unintended pregnancy.",
+      "mechanism": "Rifampicin is a potent CYP3A4 inducer — dramatically reduces oestrogen and progesterone levels.",
+      "management": "Use barrier contraception during and for one month after rifampicin therapy."
+    },
+    {
+      "drug_a": "Amoxicillin",
+      "drug_b": "Allopurinol",
+      "severity": "MODERATE",
+      "effect": "Increased incidence of skin rash (ampicillin-type rash).",
+      "mechanism": "Mechanism unclear; may involve immune complex formation in hyperuricaemic patients.",
+      "management": "Monitor for rash. Not a contraindication but require vigilance."
+    },
+    {
+      "drug_a": "Aciclovir",
+      "drug_b": "Tenofovir",
+      "severity": "MODERATE",
+      "effect": "Increased risk of nephrotoxicity.",
+      "mechanism": "Both drugs use the same renal tubular secretion pathway, competing for elimination.",
+      "management": "Monitor renal function; ensure adequate hydration. Dose adjust in renal impairment."
+    },
+    {
+      "drug_a": "Prednisolone",
+      "drug_b": "NSAIDs",
+      "severity": "MAJOR",
+      "effect": "Markedly increased risk of peptic ulceration and GI bleeding.",
+      "mechanism": "Synergistic disruption of gastric mucosa protection via dual prostaglandin inhibition.",
+      "management": "Avoid combination. If necessary, add PPI (Omeprazole 20mg OD)."
+    },
+    {
+      "drug_a": "Tenofovir",
+      "drug_b": "NSAIDs",
+      "severity": "MAJOR",
+      "effect": "Increased risk of acute kidney injury.",
+      "mechanism": "NSAIDs reduce renal blood flow; Tenofovir is nephrotoxic — combined effect on tubular injury.",
+      "management": "Avoid or use with extreme caution. Monitor eGFR and urinalysis regularly."
+    },
+    {
+      "drug_a": "Dolutegravir",
+      "drug_b": "Metformin",
+      "severity": "MODERATE",
+      "effect": "Elevated Metformin plasma levels — risk of lactic acidosis.",
+      "mechanism": "Dolutegravir inhibits OCT2/MATE1 transporters responsible for Metformin renal excretion.",
+      "management": "Monitor for metformin toxicity. Consider Metformin dose reduction."
+    },
+    {
+      "drug_a": "Omeprazole",
+      "drug_b": "Clopidogrel",
+      "severity": "MAJOR",
+      "effect": "Reduced antiplatelet efficacy of Clopidogrel — increased cardiovascular event risk.",
+      "mechanism": "Omeprazole inhibits CYP2C19, preventing conversion of clopidogrel to its active metabolite.",
+      "management": "Use Pantoprazole or Rabeprazole instead of Omeprazole when GI protection needed with Clopidogrel."
+    },
+    {
+      "drug_a": "Levothyroxine",
+      "drug_b": "Calcium supplements",
+      "severity": "MODERATE",
+      "effect": "Reduced levothyroxine absorption → inadequate thyroid replacement.",
+      "mechanism": "Calcium chelates levothyroxine in the GI tract, reducing bioavailability.",
+      "management": "Separate administration by at least 4 hours."
+    },
+    {
+      "drug_a": "Artemether",
+      "drug_b": "Rifampicin",
+      "severity": "MAJOR",
+      "effect": "Reduced artemether efficacy — treatment failure in malaria.",
+      "mechanism": "Rifampicin induces CYP3A4, dramatically increasing artemether metabolism.",
+      "management": "Avoid co-administration. Use alternative antimalarial or antitubercular regimen."
+    }
+  ]
+}

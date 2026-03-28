@@ -1,0 +1,30 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac OS
+.DS_Store
+
+# Datasets and heavy serialized models
+data/raw/*
+models/*.pkl
+knowledge_base/*.pkl
+!data/raw/.gitkeep
+!models/.gitkeep
+
+# IDEs
+.idea/
+.vscode/
+
+# Kaggle credentials
+kaggle.json
