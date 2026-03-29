@@ -1,0 +1,291 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  animation: fadeInDown 1s ease-out;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #58a6ff 0%, #a371f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px var(--accent-glow);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.inputSection {
+  width: 100%;
+  max-width: 800px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.inputSection:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.15);
+  border-color: rgba(88, 166, 255, 0.3);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1.5rem;
+  background: rgba(13, 17, 23, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: inset 0 0 0 1px var(--accent-color);
+}
+
+.textarea::placeholder {
+  color: #484f58;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #1f6feb 0%, #58a6ff 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(31, 111, 235, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(31, 111, 235, 0.6);
+}
+
+.primaryBtn:hover::before {
+  left: 100%;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Results Section */
+.resultSection {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #58a6ff, #a371f7);
+}
+
+.diagnosisHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.diagnosisTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.confidenceBadge {
+  background: rgba(88, 166, 255, 0.1);
+  color: var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.extractedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.explanation {
+  background: rgba(13, 17, 23, 0.5);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--accent-color);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.feedbackSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.feedbackLabel {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.iconBtn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.iconBtn.up:hover {
+  background: rgba(63, 185, 80, 0.1);
+  color: var(--success-color);
+  border-color: rgba(63, 185, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.iconBtn.down:hover {
+  background: rgba(248, 81, 73, 0.1);
+  color: var(--danger-color);
+  border-color: rgba(248, 81, 73, 0.3);
+  transform: translateY(-2px);
+}
+
+.thankYouMessage {
+  text-align: center;
+  color: var(--success-color);
+  padding: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
