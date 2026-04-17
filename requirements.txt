@@ -27,3 +27,7 @@ seaborn>=0.13.0
 
 # ── Kaggle Dataset Download ────────────────────────────────
 kaggle>=1.6.0
+
+# ── Generative LLM Integration ─────────────────────────────
+google-generativeai>=0.4.0
+python-dotenv>=1.0.0

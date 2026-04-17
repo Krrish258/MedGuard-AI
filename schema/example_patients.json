@@ -26,20 +26,10 @@
       "type 2 diabetes"
     ],
     "current_medications": [
-      {
-        "name": "Metformin",
-        "dose": "500mg",
-        "frequency": "twice daily"
-      },
-      {
-        "name": "Lisinopril",
-        "dose": "10mg",
-        "frequency": "once daily"
-      }
+      { "name": "Metformin",  "dose": "500mg", "frequency": "twice daily" },
+      { "name": "Lisinopril", "dose": "10mg",  "frequency": "once daily"  }
     ],
-    "allergies": [
-      "Penicillin"
-    ]
+    "allergies": ["Penicillin"]
   },
   {
     "patient_id": "PT-002",
@@ -48,24 +38,39 @@
     "symptoms": [
       "chills",
       "vomiting",
-      "high fever",
+      "high_fever",
       "sweating",
       "headache",
       "nausea",
-      "muscle pain"
+      "muscle_pain"
+    ],
+    "medical_history": ["asthma"],
+    "current_medications": [
+      { "name": "Albuterol", "dose": "90mcg", "frequency": "as needed" }
+    ],
+    "allergies": ["Sulfa drugs"]
+  },
+  {
+    "patient_id": "PT-003",
+    "age": 45,
+    "gender": "male",
+    "symptoms": [
+      "chills",
+      "vomiting",
+      "high_fever",
+      "sweating",
+      "headache",
+      "nausea",
+      "muscle_pain"
     ],
     "medical_history": [
-      "asthma"
+      "tuberculosis",
+      "chronic liver disease"
     ],
     "current_medications": [
-      {
-        "name": "Albuterol",
-        "dose": "90mcg",
-        "frequency": "as needed"
-      }
+      { "name": "Rifampicin",  "dose": "600mg", "frequency": "once daily" },
+      { "name": "Isoniazid",   "dose": "300mg", "frequency": "once daily" }
     ],
-    "allergies": [
-      "Sulfa drugs"
-    ]
+    "allergies": []
   }
 ]

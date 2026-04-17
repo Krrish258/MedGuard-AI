@@ -35,6 +35,7 @@ from rich.text import Text
 from rich import print as rprint
 
 from src.pipeline import MedGuardPipeline
+from src.doctor_persona import DoctorPersona
 
 console = Console()
 
@@ -109,6 +110,12 @@ def render_diagnosis(result: dict) -> Panel:
         style = "white" if i == 1 else "dim"
         marker = "→" if i == 1 else " "
         text.append(f"  {marker} {i}. {d['disease'].title():<40} {prob}\n", style=style)
+
+    qs = result.get("clarifying_questions", [])
+    if qs:
+        text.append("\nClarifying Questions:\n", style="bold yellow")
+        for q in qs:
+            text.append(f"  ? {q}\n", style="yellow")
 
     return Panel(text, title="[bold]Diagnosis[/bold]", border_style="magenta", padding=(0, 2))
 
@@ -252,11 +259,11 @@ def interactive_input() -> dict:
     pid = Prompt.ask("Patient ID / Name", default="PT-INTERACTIVE")
     age = IntPrompt.ask("Patient Age")
     
-    console.print("[dim]Enter symptoms separated by commas (e.g. 'high fever, dark urine, headache')[/dim]")
-    sym_str = Prompt.ask("Symptoms")
-    symptoms = [s.strip() for s in sym_str.split(",") if s.strip()]
-    if not symptoms:
-        console.print("[bold red]At least one symptom is required.[/bold red]")
+    console.print("[dim]Describe your symptoms naturally (e.g. 'I've had a high fever since morning and my urine is dark')[/dim]")
+    sym_str = Prompt.ask("Patient Prompt")
+    symptoms = [sym_str.strip()]
+    if not symptoms[0]:
+        console.print("[bold red]At least a description is required.[/bold red]")
         sys.exit(1)
     
     hist_str = Prompt.ask("Medical History (comma-separated, optional)", default="")
@@ -311,44 +318,85 @@ def main() -> None:
         parser.print_help()
         sys.exit(1)
 
-    # Run pipeline
-    try:
-        pipeline = MedGuardPipeline()
-        result   = pipeline.run(patient_data)
-    except FileNotFoundError as e:
-        console.print(f"\n[bold red]Setup error:[/bold red] {e}")
-        console.print("\n[bold]Run the setup steps first:[/bold]")
-        console.print("  1. python scripts/download_dataset.py")
-        console.print("  2. python data/preprocessor.py")
-        console.print("  3. python models/train_classifier.py")
-        console.print("  4. python knowledge_base/build_knowledge_graph.py")
-        console.print("  5. python models/embed_guidelines.py  [optional — PubMedBERT]")
-        sys.exit(1)
-    except Exception as e:
-        console.print(f"\n[bold red]Pipeline error:[/bold red] {e}")
-        raise
+    # Run pipeline loop
+    while True:
+        try:
+            pipeline = MedGuardPipeline()
+            result   = pipeline.run(patient_data)
+        except FileNotFoundError as e:
+            console.print(f"\n[bold red]Setup error:[/bold red] {e}")
+            console.print("\n[bold]Run the setup steps first:[/bold]")
+            console.print("  1. python scripts/download_dataset.py")
+            console.print("  2. python data/preprocessor.py")
+            console.print("  3. python models/train_classifier.py")
+            console.print("  4. python knowledge_base/build_knowledge_graph.py")
+            console.print("  5. python models/embed_guidelines.py  [optional — PubMedBERT]")
+            sys.exit(1)
+        except Exception as e:
+            console.print(f"\n[bold red]Pipeline error:[/bold red] {e}")
+            raise
 
-    # ── Render output ─────────────────────────────────────────────────────────
-    console.print(render_patient_header(result))
-    console.print()
-    console.print(render_reasoning_trace(result["reasoning_trace"]))
-    console.print()
-    console.print(render_symptom_matching(result["symptom_matching"]))
-    console.print()
-    console.print(render_diagnosis(result))
-    console.print(render_treatment(result))
-    console.print()
-    console.print(render_verification(result))
-    console.print()
-    console.print(render_decision(result))
-    console.print()
-    console.print(Rule(style="dim"))
-    console.print("[dim]MedGuard-AI — Research prototype. Not for clinical use.[/dim]")
+        # ── Render output ─────────────────────────────────────────────────────────
+        console.print(render_patient_header(result))
+        console.print()
+        console.print(render_reasoning_trace(result["reasoning_trace"]))
+        console.print()
+        console.print(render_symptom_matching(result["symptom_matching"]))
+        console.print()
+        console.print(render_diagnosis(result))
+        console.print(render_treatment(result))
+        console.print()
+        console.print(render_verification(result))
+        console.print()
+        console.print(render_decision(result))
+        console.print()
+        console.print(Rule(style="dim"))
+        console.print("[dim]MedGuard-AI — Research prototype. Not for clinical use.[/dim]")
 
-    # Optional raw JSON
-    if args.json:
-        console.print("\n[bold dim]── Raw JSON Output ──[/bold dim]")
-        console.print_json(json.dumps(result, indent=2))
+        # Optional raw JSON
+        if args.json:
+            console.print("\n[bold dim]── Raw JSON Output ──[/bold dim]")
+            console.print_json(json.dumps(result, indent=2))
+            
+        # Doctor Persona Generation
+        console.print()
+        console.print(Rule(title="🩺 Clinical Doctor Analysis", style="bold cyan"))
+        console.print("[dim]Generating personalized clinical diagnosis...[/dim]")
+        
+        doctor = DoctorPersona()
+        raw_prompt = ", ".join(patient_data.get("symptoms", []))
+        doc_response = doctor.generate_response(raw_prompt, result)
+        
+        console.print()
+        from rich.markdown import Markdown
+        console.print(Panel(Markdown(doc_response), border_style="cyan", padding=(1, 2)))
+        
+        # Chat Loop Logic for Clarifying Questions / User Followups
+        qs = result.get("clarifying_questions", [])
+        if args.interactive:
+            console.print()
+            from rich.prompt import Prompt
+            
+            prompt_msg = "[bold yellow]❯ Please answer the doctor's questions (or type 'quit' to exit)[/bold yellow]" if qs else "[bold yellow]❯ Do you have any follow-up questions? (type 'quit' to exit)[/bold yellow]"
+            
+            reply = Prompt.ask(prompt_msg)
+            if reply.strip().lower() in ["quit", "exit", "no", ""]:
+                break
+                
+            # Append answer to patient context and loop again
+            new_context = f"Patient replies: {reply.strip()}"
+            patient_data["symptoms"].append(new_context)
+            
+            # Clear console for neatness
+            print("\033c", end="")
+            console.print("[dim cyan]Pacing requests to respect API Rate Limits (25s delay)...[/dim cyan]")
+            import time
+            time.sleep(25)
+            console.print("[bold green]Updating diagnosis context...[/bold green]\n")
+            continue
+        else:
+            # If not interactive mode, we end
+            break
 
 
 if __name__ == "__main__":

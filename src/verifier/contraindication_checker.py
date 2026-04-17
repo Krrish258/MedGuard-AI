@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 ALLERGY_FILE     = ROOT / "knowledge_base" / "allergy_map.json"
 CONTRAINDIC_FILE = ROOT / "knowledge_base" / "history_contraindications.json"
 
-SEVERITY_PENALTY = {"CRITICAL": 45, "MAJOR": 30, "MODERATE": 12, "MINOR": 4}
+SEVERITY_PENALTY = {"CRITICAL": 40, "MAJOR": 25, "MODERATE": 10, "MINOR": 3}
 
 
 class ContraindicationChecker:

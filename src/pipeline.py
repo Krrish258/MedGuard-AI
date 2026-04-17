@@ -76,6 +76,7 @@ class MedGuardPipeline:
             "dose"           : agent_result.dose,
             "drug_class"     : agent_result.drug_class,
             "evidence_level" : agent_result.evidence_level,
+            "clarifying_questions": agent_result.clarifying_questions,
 
             # Verification output
             "safety"         : {

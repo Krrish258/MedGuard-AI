@@ -9,7 +9,7 @@
     "avoid_drugs": ["Amoxicillin", "Ampicillin", "Flucloxacillin", "Co-amoxiclav", "Piperacillin"],
     "cross_reactive": {
       "Cephalosporins": "~1-2% cross-reactivity. Avoid if anaphylaxis history.",
-      "Carbapenems": "<<1% cross-reactivity. Generally safe but monitor."
+      "Carbapenems": "~1% cross-reactivity. Monitor closely; avoid if anaphylaxis history."
     },
     "safe_alternatives": ["Azithromycin", "Clarithromycin", "Doxycycline", "Clindamycin", "Vancomycin"]
   },

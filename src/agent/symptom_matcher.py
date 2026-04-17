@@ -9,6 +9,15 @@ import json
 from pathlib import Path
 
 from thefuzz import process as fuzz_process
+import os
+import io
+
+try:
+    import google.generativeai as genai
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).resolve().parent.parent.parent / ".env")
+except ImportError:
+    genai = None
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 SYMPTOM_LIST_PATH = ROOT / "data" / "processed" / "symptom_list.json"
@@ -25,6 +34,12 @@ class SymptomMatcher:
 
     def __init__(self) -> None:
         self.vocabulary: list[str] = self._load_vocabulary()
+        self.api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+        if self.api_key and genai is not None:
+            genai.configure(api_key=self.api_key)
+            self.model = genai.GenerativeModel("gemini-2.5-flash")
+        else:
+            self.model = None
 
     def _load_vocabulary(self) -> list[str]:
         if not SYMPTOM_LIST_PATH.exists():
@@ -48,6 +63,24 @@ class SymptomMatcher:
         """
         matched: list[str] = []
         report: list[dict]  = []
+        
+        # If the input is a single long natural-language prompt, use Semantic Extraction
+        if len(raw_symptoms) == 1 and len(raw_symptoms[0]) > 20 and self.model:
+            prompt = raw_symptoms[0]
+            vocab_str = ", ".join(self.vocabulary)
+            llm_prompt = f"Analyze the following patient prompt and extract the exact symptoms present from this allowed vocabulary list ONLY:\n[{vocab_str}]\n\nPatient Prompt: '{prompt}'\n\nOutput only the comma-separated extracted symptoms, nothing else."
+            try:
+                response = self.model.generate_content(llm_prompt)
+                extracted = [s.strip().lower().replace(" ", "_") for s in response.text.split(",") if s.strip()]
+                # Re-validate against vocabulary
+                valid_extracted = [s for s in extracted if s in self.vocabulary]
+                if valid_extracted:
+                    for s in valid_extracted:
+                        matched.append(s)
+                        report.append({"raw": prompt[:30]+"...", "matched": s, "score": 99, "method": "Gemini LLM Semantic"})
+                    return matched, report
+            except Exception as e:
+                print(f"[WARN] Gemini extraction failed, falling back to fuzzy match: {e}")
 
         for raw in raw_symptoms:
             normalised = raw.strip().lower().replace(" ", "_")

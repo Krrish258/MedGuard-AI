@@ -5,9 +5,9 @@ and produces a structured VerificationResult.
 
 Safety Score Formula:
   score = 100
-        − allergy_penalty        (0–60)   [CRITICAL: 45, MAJOR: 30, MODERATE: 12]
-        − interaction_penalty    (0–60)   [CRITICAL: 40, MAJOR: 25, MODERATE: 10]
-        − history_penalty        (0–60)   [CRITICAL: 45, MAJOR: 30, MODERATE: 12]
+        − allergy_penalty        (0–60)   [CRITICAL: 40, MAJOR: 25, MODERATE: 10, MINOR: 3]
+        − interaction_penalty    (0–60)   [CRITICAL: 40, MAJOR: 25, MODERATE: 10, MINOR: 3]
+        − history_penalty        (0–60)   [CRITICAL: 40, MAJOR: 25, MODERATE: 10, MINOR: 3]
         − risk_penalty           (0–20)   [age + comorbidity burden]
   score = max(0, min(100, score))
 """
@@ -26,7 +26,7 @@ from .risk_scorer import RiskScorer
 class VerificationResult:
     """Structured output from the Causal Verification Engine."""
     safety_score         : int                    # 0–100
-    is_safe              : bool                   # score >= 50
+    is_safe              : bool                   # score >= 70
     allergy_issues       : list[dict] = field(default_factory=list)
     interaction_issues   : list[dict] = field(default_factory=list)
     history_issues       : list[dict] = field(default_factory=list)
@@ -105,7 +105,7 @@ class CausalVerifier:
 
         return VerificationResult(
             safety_score       = safety_score,
-            is_safe            = safety_score >= 50,
+            is_safe            = safety_score >= 70,
             allergy_issues     = allergy_issues,
             interaction_issues = interaction_issues,
             history_issues     = history_issues,

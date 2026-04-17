@@ -4,8 +4,8 @@ Maps the safety score and verification result to a final decision.
 
 Decision thresholds:
   APPROVED  → score ≥ 85, no CRITICAL issues, confidence ≥ 0.60
-  WARNING   → score 50–84, or non-critical issues found
-  ABSTAIN   → score < 50, CRITICAL issue, or confidence < 0.60
+  WARNING   → score 70–84, or non-critical issues found
+  ABSTAIN   → score < 70, CRITICAL issue, or confidence < 0.60
 """
 
 from __future__ import annotations
@@ -15,8 +15,8 @@ from .verifier.causal_verifier import VerificationResult
 from .agent.reasoning_agent import AgentResult
 
 APPROVED_THRESHOLD  = 85
-WARNING_THRESHOLD   = 50
-CONFIDENCE_MINIMUM  = 0.40
+WARNING_THRESHOLD   = 70
+CONFIDENCE_MINIMUM  = 0.60
 
 
 @dataclass

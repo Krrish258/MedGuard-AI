@@ -19,8 +19,8 @@ HIGH_RISK_CONDITIONS = {
 
 class RiskScorer:
     """
-    Computes an outcome risk penalty (0–20) based on:
-      - Patient age (neonate/elderly add risk)
+    Computes an outcome risk penalty (0–22) based on:
+      - Patient age (neonate/infant/elderly add risk)
       - Number and severity of comorbidities
     """
 
@@ -39,7 +39,7 @@ class RiskScorer:
             confidence     : model confidence in diagnosis (0.0–1.0)
 
         Returns:
-            penalty        : int 0–20
+            penalty        : int 0–22
             risk_label     : 'LOW', 'MODERATE', 'HIGH'
             risk_factors   : list of identified risk factors
         """
@@ -47,18 +47,21 @@ class RiskScorer:
         risk_factors: list[str] = []
 
         # ── Age risk ──────────────────────────────────────────────────────────
-        if age < 2:
-            penalty += 8
-            risk_factors.append(f"Neonate (age {age}) — extreme caution required")
+        if age == 0:  # Proxy for neonate (≤28 days) / <1 year
+            penalty += 10
+            risk_factors.append(f"Neonate/Infant (age {age}) — extreme pharmacokinetic variability (WHO/AAP)")
+        elif age < 2:
+            penalty += 7
+            risk_factors.append(f"Toddler (age {age}) — immature renal/hepatic metabolism")
         elif age < 12:
             penalty += 4
-            risk_factors.append(f"Paediatric patient (age {age}) — dose adjustment needed")
-        elif age >= 75:
-            penalty += 6
-            risk_factors.append(f"Advanced age ({age}) — increased polypharmacy risk")
+            risk_factors.append(f"Paediatric patient (age {age}) — weight-based dosing needed")
+        elif age >= 80:
+            penalty += 7
+            risk_factors.append(f"Very elderly ({age}) — high polypharmacy & falls risk (Beers Criteria)")
         elif age >= 65:
-            penalty += 3
-            risk_factors.append(f"Elderly patient (age {age}) — monitor closely")
+            penalty += 4
+            risk_factors.append(f"Elderly patient (age {age}) — monitor closely (Beers Criteria)")
 
         # ── Comorbidity burden ──────────────────────────────────────────────
         high_risk_comorbidities = [
@@ -68,13 +71,13 @@ class RiskScorer:
         comorbidity_count = len(high_risk_comorbidities)
 
         if comorbidity_count >= 3:
-            penalty += 6
-            risk_factors.append(f"Multiple high-risk comorbidities ({comorbidity_count})")
+            penalty += 8
+            risk_factors.append(f"Multiple high-risk comorbidities ({comorbidity_count}) (CCI equivalent)")
         elif comorbidity_count == 2:
-            penalty += 4
+            penalty += 5
             risk_factors.append(f"Two high-risk comorbidities: {high_risk_comorbidities}")
         elif comorbidity_count == 1:
-            penalty += 2
+            penalty += 3
             risk_factors.append(f"Comorbidity: {high_risk_comorbidities[0]}")
 
         # ── Low model confidence adds outcome uncertainty ─────────────────────
@@ -89,11 +92,11 @@ class RiskScorer:
                 f"Moderate diagnostic confidence ({confidence:.1%})"
             )
 
-        penalty = min(penalty, 20)
+        penalty = min(penalty, 22)
 
-        if penalty >= 12:
+        if penalty >= 14:
             label = "HIGH"
-        elif penalty >= 6:
+        elif penalty >= 7:
             label = "MODERATE"
         else:
             label = "LOW"

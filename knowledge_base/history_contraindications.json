@@ -5,11 +5,11 @@
   },
   "asthma": {
     "contraindicated_drugs": [
-      "Propranolol", "Atenolol", "Metoprolol", "Bisoprolol", "Carvedilol",
+      "Propranolol", "Atenolol", "Carvedilol",
       "Nadolol", "Timolol", "Sotalol"
     ],
     "drug_classes": ["Non-selective beta-blockers"],
-    "reason": "Non-selective beta-blockers block beta-2 receptors in bronchial smooth muscle, causing bronchoconstriction and potentially fatal bronchospasm.",
+    "reason": "Non-selective beta-blockers block beta-2 receptors in bronchial smooth muscle, causing bronchoconstriction and potentially fatal bronchospasm. Selective beta-1 blockers (e.g. Bisoprolol, Metoprolol) require extreme caution but are not strictly contraindicated if needed for cardiovascular disease.",
     "severity": "CRITICAL",
     "safe_alternatives": ["Amlodipine (CCB)", "Ramipril (ACE inhibitor)", "Selective beta-1 blockers (Bisoprolol) with EXTREME caution only if no alternative"]
   },
